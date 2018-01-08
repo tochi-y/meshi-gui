@@ -38,16 +38,23 @@ class MeshiList extends React.Component {
   }
 
   render() {
-    const rows = this.state.data.map(d => <MeshiRow data={d} key={d.id} />);
+    const header = this.state.data.length > 0
+      ? (
+        <tr>
+          <th>_id</th>
+          <th>name</th>
+          <th>createdAt</th>
+        </tr>
+      )
+      : <tr />;
+    const rows = this.state.data.map(d => (
+      <MeshiRow data={d} key={d._id} /> // eslint-disable-line no-underscore-dangle
+    ));
     return (
       <div className="table-responsive">
         <table className="table table-striped">
           <thead>
-            <tr>
-              <th>_id</th>
-              <th>name</th>
-              <th>createdAt</th>
-            </tr>
+            {header}
           </thead>
           <tbody>
             {rows}
