@@ -3,22 +3,21 @@ import PropTypes from 'prop-types';
 
 const MeshiRow = (props) => {
   const {
-    a, b, c, d, e,
+    _id, name, createdAt,
   } = props.data;
   return (
     <tr>
-      <td>{a}</td>
-      <td>{b}</td>
-      <td>{c}</td>
-      <td>{d}</td>
-      <td>{e}</td>
+      <td>{_id}</td>
+      <td>{name}</td>
+      <td>{createdAt}</td>
     </tr>
   );
 };
 
 MeshiRow.propTypes = {
-  data: PropTypes.arrayOf(PropTypes.oneOfType([
-    PropTypes.number, PropTypes.string,
+  data: PropTypes.objectOf(PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number,
   ])).isRequired,
 };
 

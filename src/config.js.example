@@ -1,0 +1,5 @@
+const config = {
+  meshiUrl: 'https://****/api',
+};
+
+export default config;
